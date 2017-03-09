@@ -1,16 +1,18 @@
-namespace Api {
-  export interface UserResponse {
-    id: string
-    name: string
-  }
+abstract class Animal {
+  public spiece: string
 
-  export interface UsersResponse {
-    items: UserResponse[],
-    total: number
+  public move(distance: number): void {
+    console.log(`Animal moved by ${distance}m`)
   }
 }
 
-const resp: Api.UserResponse = {
-  id: 'f2313a10-ec54-4fdc-abc9-81fe82488454',
-  name: 'Arek'
+class Pet extends Animal {
+  public name: string
+
+  constructor(name: string) {
+    super()
+    this.name = name
+  }
 }
+
+new Pet('jurek').name
